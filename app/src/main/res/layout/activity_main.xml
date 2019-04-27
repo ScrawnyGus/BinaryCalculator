@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#aaa"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:background="@drawable/style_btn_white"
+        android:layout_margin="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:textSize="14pt"
+                android:text="IP Calculator"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Oktal 1 -->
+                <EditText
+                    android:id="@+id/edtOktal1"
+                    android:layout_width="50dp"
+                    android:textAlignment="center"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:textSize="12pt"/>
+
+                <!-- Oktal 2 -->
+                <EditText
+                    android:id="@+id/edtOktal2"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:textSize="12pt"/>
+
+                <!-- Oktal 3 -->
+                <EditText
+                    android:id="@+id/edtOktal3"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="."
+                    android:textSize="12pt"/>
+
+                <!-- Oktal 4 -->
+                <EditText
+                    android:id="@+id/edtOktal4"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:textSize="12pt"/>
+
+                <!-- Subnet -->
+                <EditText
+                    android:id="@+id/edtSubnet"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLength="2" />
+            </LinearLayout>
+
+            <!-- Submit button -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textColor="@android:color/white"
+                android:background="@drawable/style_btn_yellow"
+                android:layout_gravity="center"
+                android:onClick="Submit" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -131,12 +131,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/ipIdLabel"
                     android:text="192.168.0.1"
                     android:textSize="10pt" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/ipBinLabel"
+                    android:fontFamily=""
                     android:text="11000000.10101000.00000000.00000001"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -163,12 +166,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="255.255.255.0 = 0"
+                    android:id="@+id/netMaskLabel"
+                    android:text="255.255.255.0"
                     android:textSize="10pt" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/subBinLabel"
+                    android:fontFamily=""
                     android:text="11111111.11111111.11111111.00000000"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -201,6 +207,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily=""
                     android:text="00000000.00000000.00000000.11111111"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -227,6 +234,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/netIdLabel"
                     android:text="192.168.0.0/24"
                     android:textSize="10pt" />
 
@@ -240,6 +248,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/netBinLabel"
+                    android:fontFamily="]"
                     android:text="11000000.10101000.00000000.00000000"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -266,12 +276,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/bcIdLabel"
                 android:text="192.168.0.255"
                 android:textSize="10pt" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/bcBinLabel"
+                android:fontFamily=""
                 android:text="11000000.10101000.00000000.11111111"
                 android:textSize="7pt" />
         </LinearLayout>
@@ -304,6 +317,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily=""
                     android:text="11000000.10101000.00000000.00000001"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -336,6 +350,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily=""
                     android:text="11000000.10101000.00000000.11111110"
                     android:textSize="7pt" />
             </LinearLayout>

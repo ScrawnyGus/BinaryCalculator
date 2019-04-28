@@ -145,9 +145,9 @@ public class Main2Activity extends AppCompatActivity {
                 subBinaryFull += "00000000";
                 netmaskFull += "0";
                 binnetidFull += "00000000";
-                binbcidFull += "00000000";
+                binbcidFull += "11111111";
                 netidFull += "0";
-                bcidFull += "1";
+                bcidFull += "255";
 
             } else {
                 subBinaryFull += subBinary;

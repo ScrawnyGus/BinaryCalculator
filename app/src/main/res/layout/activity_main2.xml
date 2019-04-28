@@ -201,15 +201,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/wildCardLabel"
                     android:text="0.0.0.255"
                     android:textSize="10pt" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily=""
-                    android:text="00000000.00000000.00000000.11111111"
-                    android:textSize="7pt" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:fontFamily=""-->
+                    <!--android:id="@+id/wildBinLabel"-->
+                    <!--android:text="00000000.00000000.00000000.11111111"-->
+                    <!--android:textSize="7pt" />-->
             </LinearLayout>
 
             <!-- Network -->
@@ -311,6 +313,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/hostMinIdLabel"
                     android:text="192.168.0.1"
                     android:textSize="10pt" />
 
@@ -318,6 +321,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily=""
+                    android:id="@+id/hostMinBinLabel"
                     android:text="11000000.10101000.00000000.00000001"
                     android:textSize="7pt" />
             </LinearLayout>
@@ -344,6 +348,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/hostMaxIdLabel"
                     android:text="192.168.0.254"
                     android:textSize="10pt" />
 
@@ -351,6 +356,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily=""
+                    android:id="@+id/hostMaxBinLabel"
                     android:text="11000000.10101000.00000000.11111110"
                     android:textSize="7pt" />
             </LinearLayout>

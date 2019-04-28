@@ -7,7 +7,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
-    private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel;
+    private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel;
     String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
@@ -26,12 +26,18 @@ public class Main2Activity extends AppCompatActivity {
         Subnet = findViewById(R.id.txtSubnet);
         subBinLabel = findViewById(R.id.subBinLabel);
         netMaskLabel = findViewById(R.id.netMaskLabel);
+        wildCardLabel = findViewById(R.id.wildCardLabel);
+//        wildBinLabel = findViewById(R.id.wildBinLabel);
         netBinLabel = findViewById(R.id.netBinLabel);
         bcBinLabel = findViewById(R.id.bcBinLabel);
         netIdLabel = findViewById(R.id.netIdLabel);
         bcIdLabel = findViewById(R.id.bcIdLabel);
         ipIdLabel = findViewById(R.id.ipIdLabel);
         ipBinLabel = findViewById(R.id.ipBinLabel);
+        hostMinIdLabel = findViewById(R.id.hostMinIdLabel);
+        hostMaxIdLabel = findViewById(R.id.hostMaxIdLabel);
+        hostMinBinLabel = findViewById(R.id.hostMinBinLabel);
+        hostMaxBinLabel = findViewById(R.id.hostMaxBinLabel);
 
         bundle = getIntent().getExtras();
         stOktal1 = bundle.getString("Okt1");
@@ -89,8 +95,14 @@ public class Main2Activity extends AppCompatActivity {
         String binnetidFull = "";
         String binbcidFull = "";
         String netmaskFull = "";
+        String wildcard = "";
         String netidFull = "";
         String bcidFull = "";
+        String hostmin = "";
+        String hostmax = "";
+        String binhostmin = "";
+        String binhostmax = "";
+        String wildbin = "";
 
         //loop to generate binary mask from octet pos
         for (int i = 1; i <= 8; i++) {
@@ -107,7 +119,7 @@ public class Main2Activity extends AppCompatActivity {
         int netmask = Integer.parseInt(String.valueOf(subBinary), 2);
 
         //ip octets array
-        int[] oct = {
+        Integer[] oct = {
                 Integer.valueOf(stOktal1),
                 Integer.valueOf(stOktal2),
                 Integer.valueOf(stOktal3),
@@ -137,42 +149,73 @@ public class Main2Activity extends AppCompatActivity {
             if (i < pos) {
                 subBinaryFull += "11111111";
                 netmaskFull += "255";
+                wildcard += "0";
+                wildbin += "00000000";
                 binnetidFull += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '0');
                 binbcidFull += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '0');
                 netidFull += oct[i];
                 bcidFull += oct[i];
+                hostmin += oct[i];
+                hostmax += oct[i];
+                binhostmin += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '0');
+                binhostmax += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '0');
+
             } else if (i > pos) {
                 subBinaryFull += "00000000";
                 netmaskFull += "0";
+                wildcard += "255";
+                wildbin += "11111111";
                 binnetidFull += "00000000";
                 binbcidFull += "11111111";
                 netidFull += "0";
                 bcidFull += "255";
+                hostmin += "1";
+                hostmax += "254";
+                binhostmin += "00000001";
+                binhostmax += "11111110";
 
             } else {
                 subBinaryFull += subBinary;
                 netmaskFull += String.valueOf(netmask);
+                wildcard += 255 - netmask;
+                wildbin += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '1');
                 binnetidFull += binNetId;
                 binbcidFull += binBcId;
                 netidFull += Integer.parseInt(String.valueOf(binNetId), 2);
                 bcidFull += Integer.parseInt(String.valueOf(binBcId), 2);
+                hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
+                hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
+                binhostmin += binNetId;
+                binhostmax += binBcId;
             }
             if (i != 3) {
                 subBinaryFull += ".";
                 netmaskFull += ".";
+                wildcard += ".";
+                wildbin += ".";
                 binnetidFull += ".";
                 binbcidFull += ".";
                 netidFull += ".";
                 bcidFull += ".";
                 binIpFull += ".";
+                hostmin += ".";
+                hostmax += ".";
+                binhostmin += ".";
+                binhostmax += ".";
             }
         }
         subBinLabel.setText(subBinaryFull);
         netMaskLabel.setText(netmaskFull);
+//        wildBinLabel.setText(wildbin);
+        wildCardLabel.setText(wildcard);
         netBinLabel.setText(binnetidFull);
         bcBinLabel.setText(binbcidFull);
         netIdLabel.setText(netidFull);
         bcIdLabel.setText(bcidFull);
         ipBinLabel.setText(binIpFull);
+        hostMinIdLabel.setText(hostmin);
+        hostMaxIdLabel.setText(hostmax);
+        hostMinBinLabel.setText(binhostmin);
+        hostMaxBinLabel.setText(binhostmax);
     }
 }

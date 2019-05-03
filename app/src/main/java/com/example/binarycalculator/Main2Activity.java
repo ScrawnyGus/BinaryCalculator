@@ -7,7 +7,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
-    private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel;
+    private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, wildBinLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel, netTypeLabel;
     String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
@@ -27,7 +27,7 @@ public class Main2Activity extends AppCompatActivity {
         subBinLabel = findViewById(R.id.subBinLabel);
         netMaskLabel = findViewById(R.id.netMaskLabel);
         wildCardLabel = findViewById(R.id.wildCardLabel);
-//        wildBinLabel = findViewById(R.id.wildBinLabel);
+        wildBinLabel = findViewById(R.id.wildBinLabel);
         netBinLabel = findViewById(R.id.netBinLabel);
         bcBinLabel = findViewById(R.id.bcBinLabel);
         netIdLabel = findViewById(R.id.netIdLabel);
@@ -38,6 +38,7 @@ public class Main2Activity extends AppCompatActivity {
         hostMaxIdLabel = findViewById(R.id.hostMaxIdLabel);
         hostMinBinLabel = findViewById(R.id.hostMinBinLabel);
         hostMaxBinLabel = findViewById(R.id.hostMaxBinLabel);
+        netTypeLabel = findViewById(R.id.netTypeLabel);
 
         bundle = getIntent().getExtras();
         stOktal1 = bundle.getString("Okt1");
@@ -91,6 +92,7 @@ public class Main2Activity extends AppCompatActivity {
 
         String binIpFull = "";
         String subBinary = "";
+        String subBinaray = "";
         String subBinaryFull = "";
         String binnetidFull = "";
         String binbcidFull = "";
@@ -103,8 +105,10 @@ public class Main2Activity extends AppCompatActivity {
         String binhostmin = "";
         String binhostmax = "";
         String wildbin = "";
+        String nettype = "(Public Network)";
 
         //loop to generate binary mask from octet pos
+        //biner netmask
         for (int i = 1; i <= 8; i++) {
             if (i <= rem) {
                 subBinary += "1";
@@ -113,12 +117,21 @@ public class Main2Activity extends AppCompatActivity {
             }
         };
 
-
+        //biner wildcard
+        for (int i = 1; i <= 8; i++) {
+            if (i <= rem) {
+                subBinaray += "0";
+            } else {
+                subBinaray += "1";
+            }
+        };
 
         //netmask (integer version of subBinary
+        //ip netmask
         int netmask = Integer.parseInt(String.valueOf(subBinary), 2);
 
         //ip octets array
+        //penarikan oktet dengan array
         Integer[] oct = {
                 Integer.valueOf(stOktal1),
                 Integer.valueOf(stOktal2),
@@ -178,15 +191,23 @@ public class Main2Activity extends AppCompatActivity {
                 subBinaryFull += subBinary;
                 netmaskFull += String.valueOf(netmask);
                 wildcard += 255 - netmask;
-                wildbin += String.format("%8s", Integer.toBinaryString(oct[i])).replace(' ', '1');
+                wildbin += subBinaray;
                 binnetidFull += binNetId;
                 binbcidFull += binBcId;
                 netidFull += Integer.parseInt(String.valueOf(binNetId), 2);
                 bcidFull += Integer.parseInt(String.valueOf(binBcId), 2);
-                hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
-                hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
-                binhostmin += binNetId;
-                binhostmax += binBcId;
+                if(i == 3) {
+                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2)+1;
+                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2)-1;
+                    binhostmin += binNetId.substring(0, 7) + "1";
+                    binhostmax += binBcId.substring(0, 7) + "0";
+                }
+                else {
+                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
+                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
+                    binhostmin += binNetId;
+                    binhostmax += binBcId;
+                }
             }
             if (i != 3) {
                 subBinaryFull += ".";
@@ -204,9 +225,28 @@ public class Main2Activity extends AppCompatActivity {
                 binhostmax += ".";
             }
         }
+
+        if (oct[0] == 10) {
+            nettype = "(Private Network)";
+        }
+
+        if (oct[0] == 172) {
+            if (oct[1] >= 16 && oct[1] <= 32) {
+                nettype = "(Private Network)";
+            }
+        }
+
+        if (oct[0] == 192) {
+            if (oct[1] == 168) {
+                nettype = "(Private Network)";
+            }
+        }
+
+
+
         subBinLabel.setText(subBinaryFull);
         netMaskLabel.setText(netmaskFull);
-//        wildBinLabel.setText(wildbin);
+        wildBinLabel.setText(wildbin);
         wildCardLabel.setText(wildcard);
         netBinLabel.setText(binnetidFull);
         bcBinLabel.setText(binbcidFull);
@@ -217,5 +257,6 @@ public class Main2Activity extends AppCompatActivity {
         hostMaxIdLabel.setText(hostmax);
         hostMinBinLabel.setText(binhostmin);
         hostMaxBinLabel.setText(binhostmax);
+        netTypeLabel.setText(nettype);
     }
 }

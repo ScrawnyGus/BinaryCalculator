@@ -205,13 +205,13 @@
                     android:text="0.0.0.255"
                     android:textSize="10pt" />
 
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:fontFamily=""-->
-                    <!--android:id="@+id/wildBinLabel"-->
-                    <!--android:text="00000000.00000000.00000000.11111111"-->
-                    <!--android:textSize="7pt" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily=""
+                    android:id="@+id/wildBinLabel"
+                    android:text="00000000.00000000.00000000.11111111"
+                    android:textSize="7pt" />
             </LinearLayout>
 
             <!-- Network -->
@@ -390,6 +390,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/netTypeLabel"
                     android:text="(Private Network)"
                     android:textSize="7pt" />
             </LinearLayout>

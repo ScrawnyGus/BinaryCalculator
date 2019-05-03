@@ -43,19 +43,19 @@ public class MainActivity extends AppCompatActivity {
     public void Submit(View v) {
         if (Oktal1.getText().toString().length()==0)
         {
-            Oktal1.setError("Oktal 1 tidak boleh kosong");
+            Oktal1.setError("Oktet 1 tidak boleh kosong");
         }
         if (Oktal2.getText().toString().length()==0)
         {
-            Oktal2.setError("Oktal 2 tidak boleh kosong");
+            Oktal2.setError("Oktet 2 tidak boleh kosong");
         }
         if (Oktal3.getText().toString().length()==0)
         {
-            Oktal3.setError("Oktal 3 tidak boleh kosong");
+            Oktal3.setError("Oktet 3 tidak boleh kosong");
         }
         if (Oktal4.getText().toString().length()==0)
         {
-            Oktal4.setError("Oktal 4 tidak boleh kosong");
+            Oktal4.setError("Oktet 4 tidak boleh kosong");
         }
         if (Subnet.getText().toString().length()==0)
         {

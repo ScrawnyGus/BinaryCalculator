@@ -112,19 +112,21 @@ public class Main2Activity extends AppCompatActivity {
         for (int i = 1; i <= 8; i++) {
             if (i <= rem) {
                 subBinary += "1";
-            } else {
-                subBinary += "0";
-            }
-        };
-
-        //biner wildcard
-        for (int i = 1; i <= 8; i++) {
-            if (i <= rem) {
                 subBinaray += "0";
             } else {
+                subBinary += "0";
                 subBinaray += "1";
             }
         };
+
+//        //biner wildcard
+//        for (int i = 1; i <= 8; i++) {
+//            if (i <= rem) {
+//
+//            } else {
+//
+//            }
+//        };
 
         //netmask (integer version of subBinary
         //ip netmask

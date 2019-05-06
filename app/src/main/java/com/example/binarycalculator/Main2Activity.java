@@ -119,15 +119,6 @@ public class Main2Activity extends AppCompatActivity {
             }
         };
 
-//        //biner wildcard
-//        for (int i = 1; i <= 8; i++) {
-//            if (i <= rem) {
-//
-//            } else {
-//
-//            }
-//        };
-
         //netmask (integer version of subBinary
         //ip netmask
         int netmask = Integer.parseInt(String.valueOf(subBinary), 2);
@@ -149,6 +140,10 @@ public class Main2Activity extends AppCompatActivity {
 
         for (int i = 0; i < 8; i++) {
             String binPointer = subBinary.substring(i, i + 1);
+//            if (3 == i) {
+//                binNetId += " ";
+//                binBcId += " ";
+//            }
             if (binPointer.equals("1")) {
                 binNetId += binOct.substring(i, i + 1);
                 binBcId += binOct.substring(i, i + 1);
@@ -211,6 +206,9 @@ public class Main2Activity extends AppCompatActivity {
                     binhostmax += binBcId;
                 }
             }
+
+
+
             if (i != 3) {
                 subBinaryFull += ".";
                 netmaskFull += ".";
@@ -244,21 +242,48 @@ public class Main2Activity extends AppCompatActivity {
             }
         }
 
-
-
-        subBinLabel.setText(subBinaryFull);
+        if (prefix<=8){
+            subBinLabel.setText(subBinaryFull.substring(0,prefix) + " " + subBinaryFull.substring(prefix,35));
+            wildBinLabel.setText(wildbin.substring(0,prefix) + " " + wildbin.substring(prefix,35));
+            netBinLabel.setText(binnetidFull.substring(0,prefix) + " " + binnetidFull.substring(prefix,35));
+            bcBinLabel.setText(binbcidFull.substring(0,prefix) + " " + binbcidFull.substring(prefix,35));
+            ipBinLabel.setText(binIpFull.substring(0,prefix) + " " + binIpFull.substring(prefix,35));
+            hostMinBinLabel.setText(binhostmin.substring(0,prefix) + " " + binhostmin.substring(prefix,35));
+            hostMaxBinLabel.setText(binhostmax.substring(0,prefix) + " " + binhostmax.substring(prefix,35));
+        }
+        else if (prefix<=16){
+            subBinLabel.setText(subBinaryFull.substring(0,prefix+1) + " " + subBinaryFull.substring(prefix+1,35));
+            wildBinLabel.setText(wildbin.substring(0,prefix+1) + " " + wildbin.substring(prefix+1,35));
+            netBinLabel.setText(binnetidFull.substring(0,prefix+1) + " " + binnetidFull.substring(prefix+1,35));
+            bcBinLabel.setText(binbcidFull.substring(0,prefix+1) + " " + binbcidFull.substring(prefix+1,35));
+            ipBinLabel.setText(binIpFull.substring(0,prefix+1) + " " + binIpFull.substring(prefix+1,35));
+            hostMinBinLabel.setText(binhostmin.substring(0,prefix+1) + " " + binhostmin.substring(prefix+1,35));
+            hostMaxBinLabel.setText(binhostmax.substring(0,prefix+1) + " " + binhostmax.substring(prefix+1,35));
+        }
+        else if (prefix<=24){
+            subBinLabel.setText(subBinaryFull.substring(0,prefix+2) + " " + subBinaryFull.substring(prefix+2,35));
+            wildBinLabel.setText(wildbin.substring(0,prefix+2) + " " + wildbin.substring(prefix+2,35));
+            netBinLabel.setText(binnetidFull.substring(0,prefix+2) + " " + binnetidFull.substring(prefix+2,35));
+            bcBinLabel.setText(binbcidFull.substring(0,prefix+2) + " " + binbcidFull.substring(prefix+2,35));
+            ipBinLabel.setText(binIpFull.substring(0,prefix+2) + " " + binIpFull.substring(prefix+2,35));
+            hostMinBinLabel.setText(binhostmin.substring(0,prefix+2) + " " + binhostmin.substring(prefix+2,35));
+            hostMaxBinLabel.setText(binhostmax.substring(0,prefix+2) + " " + binhostmax.substring(prefix+2,35));
+        }
+        else if (prefix<=32){
+            subBinLabel.setText(subBinaryFull.substring(0,prefix+3) + " " + subBinaryFull.substring(prefix+3,35));
+            wildBinLabel.setText(wildbin.substring(0,prefix+3) + " " + wildbin.substring(prefix+3,35));
+            netBinLabel.setText(binnetidFull.substring(0,prefix+3) + " " + binnetidFull.substring(prefix+3,35));
+            bcBinLabel.setText(binbcidFull.substring(0,prefix+3) + " " + binbcidFull.substring(prefix+3,35));
+            ipBinLabel.setText(binIpFull.substring(0,prefix+3) + " " + binIpFull.substring(prefix+3,35));
+            hostMinBinLabel.setText(binhostmin.substring(0,prefix+3) + " " + binhostmin.substring(prefix+3,35));
+            hostMaxBinLabel.setText(binhostmax.substring(0,prefix+3) + " " + binhostmax.substring(prefix+3,35));
+        }
         netMaskLabel.setText(netmaskFull);
-        wildBinLabel.setText(wildbin);
         wildCardLabel.setText(wildcard);
-        netBinLabel.setText(binnetidFull);
-        bcBinLabel.setText(binbcidFull);
         netIdLabel.setText(netidFull);
         bcIdLabel.setText(bcidFull);
-        ipBinLabel.setText(binIpFull);
         hostMinIdLabel.setText(hostmin);
         hostMaxIdLabel.setText(hostmax);
-        hostMinBinLabel.setText(binhostmin);
-        hostMaxBinLabel.setText(binhostmax);
         netTypeLabel.setText(nettype);
     }
 }

@@ -2,16 +2,15 @@ package com.example.binarycalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.SeekBar;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class Main2Activity extends AppCompatActivity {
     private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, wildBinLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel, netTypeLabel;
     String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
-    ArrayList<Integer> values;
+    SeekBar sbSubnet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +38,26 @@ public class Main2Activity extends AppCompatActivity {
         hostMinBinLabel = findViewById(R.id.hostMinBinLabel);
         hostMaxBinLabel = findViewById(R.id.hostMaxBinLabel);
         netTypeLabel = findViewById(R.id.netTypeLabel);
+
+        sbSubnet = findViewById(R.id.sbSubnet);
+        sbSubnet.setMax(32);
+        sbSubnet.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Subnet.setText("" + progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         bundle = getIntent().getExtras();
         stOktal1 = bundle.getString("Okt1");
@@ -208,7 +227,6 @@ public class Main2Activity extends AppCompatActivity {
             }
 
 
-
             if (i != 3) {
                 subBinaryFull += ".";
                 netmaskFull += ".";
@@ -285,5 +303,9 @@ public class Main2Activity extends AppCompatActivity {
         hostMinIdLabel.setText(hostmin);
         hostMaxIdLabel.setText(hostmax);
         netTypeLabel.setText(nettype);
+    }
+
+    private void getText(TextView subnet) {
+
     }
 }

@@ -6,7 +6,11 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
+<<<<<<< Updated upstream
     private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, wildBinLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel, netTypeLabel;
+=======
+    private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMinBinLabel;
+>>>>>>> Stashed changes
     String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
@@ -34,6 +38,7 @@ public class Main2Activity extends AppCompatActivity {
         ipIdLabel = findViewById(R.id.ipIdLabel);
         ipBinLabel = findViewById(R.id.ipBinLabel);
         hostMinIdLabel = findViewById(R.id.hostMinIdLabel);
+<<<<<<< Updated upstream
         hostMaxIdLabel = findViewById(R.id.hostMaxIdLabel);
         hostMinBinLabel = findViewById(R.id.hostMinBinLabel);
         hostMaxBinLabel = findViewById(R.id.hostMaxBinLabel);
@@ -58,6 +63,9 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
+=======
+        hostMinBinLabel = findViewById(R.id.hostMinBinLabel);
+>>>>>>> Stashed changes
 
         bundle = getIntent().getExtras();
         stOktal1 = bundle.getString("Okt1");
@@ -198,11 +206,14 @@ public class Main2Activity extends AppCompatActivity {
                 binbcidFull += "11111111";
                 netidFull += "0";
                 bcidFull += "255";
+<<<<<<< Updated upstream
                 hostmin += "1";
                 hostmax += "254";
                 binhostmin += "00000001";
                 binhostmax += "11111110";
 
+=======
+>>>>>>> Stashed changes
             } else {
                 subBinaryFull += subBinary;
                 netmaskFull += String.valueOf(netmask);
@@ -243,6 +254,7 @@ public class Main2Activity extends AppCompatActivity {
                 binhostmax += ".";
             }
         }
+<<<<<<< Updated upstream
 
         if (oct[0] == 10) {
             nettype = "(Private Network)";
@@ -296,10 +308,22 @@ public class Main2Activity extends AppCompatActivity {
             hostMinBinLabel.setText(binhostmin.substring(0,prefix+3) + " " + binhostmin.substring(prefix+3,35));
             hostMaxBinLabel.setText(binhostmax.substring(0,prefix+3) + " " + binhostmax.substring(prefix+3,35));
         }
+=======
+//        Integer binhostid = Integer.parseInt(binnetidFull);
+//        Integer aaa = binhostid - 1;
+//        String binhostidFull = aaa.toString();
+
+//        Integer ipbin = Integer.parseInt(stOktal1+stOktal2+stOktal3,2);
+//        ipbin = (ipbin << 8)+Integer.parseInt(stOktal4,2);
+//        String ipbinn = ipbin.toString();
+
+        subBinLabel.setText(subBinaryFull);
+>>>>>>> Stashed changes
         netMaskLabel.setText(netmaskFull);
         wildCardLabel.setText(wildcard);
         netIdLabel.setText(netidFull);
         bcIdLabel.setText(bcidFull);
+<<<<<<< Updated upstream
         hostMinIdLabel.setText(hostmin);
         hostMaxIdLabel.setText(hostmax);
         netTypeLabel.setText(nettype);
@@ -307,5 +331,10 @@ public class Main2Activity extends AppCompatActivity {
 
     private void getText(TextView subnet) {
 
+=======
+        ipBinLabel.setText(binIpFull);
+//        hostMinIdLabel.setText(ipbinn);
+//        hostMinBinLabel.setText(binhostidFull);
+>>>>>>> Stashed changes
     }
 }

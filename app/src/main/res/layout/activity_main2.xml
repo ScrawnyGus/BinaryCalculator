@@ -327,7 +327,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                     android:fontFamily="monospace"
+=======
+                    android:fontFamily=""
+>>>>>>> Stashed changes
                     android:id="@+id/hostMinBinLabel"
                     android:text="11000000.10101000.00000000.00000001"
                     android:textSize="6pt" />

@@ -1,5 +1,6 @@
 package com.example.binarycalculator;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
@@ -7,7 +8,7 @@ import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
     private TextView Oktal1, Oktal2, Oktal3, Oktal4, Subnet, kelas, hosts, subBinLabel, netMaskLabel, wildCardLabel, wildBinLabel, netBinLabel, bcBinLabel, netIdLabel, bcIdLabel, ipBinLabel, ipIdLabel, hostMinIdLabel, hostMaxIdLabel, hostMinBinLabel, hostMaxBinLabel, netTypeLabel;
-    String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil;
+    String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil, gg;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
     SeekBar sbSubnet;
@@ -43,9 +44,11 @@ public class Main2Activity extends AppCompatActivity {
         sbSubnet.setMax(32);
         sbSubnet.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
+            int seekBarProgress;
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Subnet.setText("" + progress);
+                seekBarProgress = progress;
             }
 
             @Override
@@ -198,10 +201,26 @@ public class Main2Activity extends AppCompatActivity {
                 binbcidFull += "11111111";
                 netidFull += "0";
                 bcidFull += "255";
-                hostmin += "1";
-                hostmax += "254";
-                binhostmin += "00000001";
-                binhostmax += "11111110";
+                if(i == 3) {
+//                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2)+1;
+//                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2)-1;
+//                    binhostmin += binNetId.substring(0, 7) + "1";
+//                    binhostmax += binBcId.substring(0, 7) + "0";
+                    hostmin += "1";
+                    hostmax += "254";
+                    binhostmin += "00000001";
+                    binhostmax += "11111110";
+                }
+                else {
+//                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
+//                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
+//                    binhostmin += binNetId;
+//                    binhostmax += binBcId;
+                    hostmin += "0";
+                    hostmax += "255";
+                    binhostmin += "00000000";
+                    binhostmax += "11111111";
+                }
             } else {
                 subBinaryFull += subBinary;
                 netmaskFull += String.valueOf(netmask);
@@ -211,18 +230,10 @@ public class Main2Activity extends AppCompatActivity {
                 binbcidFull += binBcId;
                 netidFull += Integer.parseInt(String.valueOf(binNetId), 2);
                 bcidFull += Integer.parseInt(String.valueOf(binBcId), 2);
-                if(i == 3) {
-                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2)+1;
-                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2)-1;
-                    binhostmin += binNetId.substring(0, 7) + "1";
-                    binhostmax += binBcId.substring(0, 7) + "0";
-                }
-                else {
-                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
-                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
-                    binhostmin += binNetId;
-                    binhostmax += binBcId;
-                }
+                hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
+                hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
+                binhostmin += binNetId;
+                binhostmax += binBcId;
             }
 
 

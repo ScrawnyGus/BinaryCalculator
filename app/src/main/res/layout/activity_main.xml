@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#aaa"
+    android:background="@mipmap/back"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -25,7 +25,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:textSize="14pt"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18pt"
+                android:layout_gravity="center"
+                android:fontFamily="@font/bebasneue"
                 android:text="IP Calculator"/>
 
             <LinearLayout
@@ -42,6 +45,8 @@
                     android:textAlignment="center"
                     android:layout_height="match_parent"
                     android:ems="10"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextSecond"
                     android:inputType="number"
                     android:maxLength="3" />
 
@@ -49,7 +54,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="."
-                    android:textSize="12pt"/>
+                    android:textSize="12pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <!-- Oktal 2 -->
                 <EditText
@@ -58,6 +64,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:ems="10"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextSecond"
                     android:inputType="number"
                     android:maxLength="3" />
 
@@ -65,7 +73,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="."
-                    android:textSize="12pt"/>
+                    android:textSize="12pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <!-- Oktal 3 -->
                 <EditText
@@ -74,6 +83,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:ems="10"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextSecond"
                     android:inputType="number"
                     android:maxLength="3" />
 
@@ -81,7 +92,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="."
-                    android:textSize="12pt"/>
+                    android:textSize="12pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <!-- Oktal 4 -->
                 <EditText
@@ -90,6 +102,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:ems="10"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextSecond"
                     android:inputType="number"
                     android:maxLength="3" />
 
@@ -97,17 +111,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="/"
-                    android:textSize="12pt"/>
+                    android:textSize="12pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <!-- Subnet -->
                 <EditText
                     android:id="@+id/edtSubnet"
-                    android:layout_width="40dp"
+                    android:layout_width="39dp"
                     android:layout_height="match_parent"
-                    android:textAlignment="center"
                     android:ems="10"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextSecond"
                     android:inputType="number"
-                    android:maxLength="2" />
+                    android:maxLength="2"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <!-- Submit button -->
@@ -115,10 +132,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Submit"
+                android:fontFamily="@font/bebasneue"
                 android:textColor="@android:color/white"
                 android:background="@drawable/style_btn_yellow"
                 android:layout_gravity="center"
-                android:onClick="Submit" />
+                android:onClick="Submit"
+                android:textSize="9pt"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

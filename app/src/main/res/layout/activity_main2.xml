@@ -4,40 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/back"
     tools:context=".Main2Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#bbb"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:background="@color/colorPrimary"
-            android:orientation="vertical"
-            android:padding="50dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingTop="15dp"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                android:fontFamily="@font/bebasneue"
                 android:text="Result for IP"
                 android:textColor="@android:color/white"
-                android:textSize="14pt" />
+                android:textSize="18pt" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="50dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/txtOktal1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebasneue"
                     android:text="255"
                     android:textColor="@android:color/white"
                     android:textSize="10pt" />
@@ -47,12 +51,14 @@
                     android:layout_height="wrap_content"
                     android:text="."
                     android:textColor="@android:color/white"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <TextView
                     android:id="@+id/txtOktal2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebasneue"
                     android:text="255"
                     android:textColor="@android:color/white"
                     android:textSize="10pt" />
@@ -62,12 +68,14 @@
                     android:layout_height="wrap_content"
                     android:text="."
                     android:textColor="@android:color/white"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <TextView
                     android:id="@+id/txtOktal3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebasneue"
                     android:text="255"
                     android:textColor="@android:color/white"
                     android:textSize="10pt" />
@@ -77,12 +85,14 @@
                     android:layout_height="wrap_content"
                     android:text="."
                     android:textColor="@android:color/white"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <TextView
                     android:id="@+id/txtOktal4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebasneue"
                     android:text="255"
                     android:textColor="@android:color/white"
                     android:textSize="10pt" />
@@ -92,30 +102,33 @@
                     android:layout_height="wrap_content"
                     android:text="/"
                     android:textColor="@android:color/white"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"/>
 
                 <TextView
                     android:id="@+id/txtSubnet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bebasneue"
                     android:text="32"
                     android:textColor="@android:color/white"
                     android:textSize="10pt" />
-            </LinearLayout>
 
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="25px"
-                android:id="@+id/sbSubnet"
-                android:visibility="invisible"/>
+                <!--<SeekBar-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginTop="25px"-->
+                <!--android:id="@+id/sbSubnet"-->
+                <!--android:visibility="invisible"/>-->
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <!-- Address -->
             <LinearLayout
@@ -126,22 +139,28 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:fontFamily="@font/bebasneue"
                     android:text="Address"
-                    android:textSize="10pt" />
+                    android:layout_gravity=""
+                    android:textColor="#000B71"
+                    android:textSize="10pt"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/ipIdLabel"
                     android:text="192.168.0.1"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -149,34 +168,31 @@
                     android:id="@+id/ipBinLabel"
                     android:fontFamily="monospace"
                     android:text="11000000.10101000.00000000.00000001"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- Netmask -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="Netmask"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/netMaskLabel"
                     android:text="255.255.255.0"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -184,34 +200,30 @@
                     android:id="@+id/subBinLabel"
                     android:fontFamily="monospace"
                     android:text="11111111.11111111.11111111.00000000"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- Wildcard -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="Wildcard"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/wildCardLabel"
                     android:text="0.0.0.255"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -219,41 +231,39 @@
                     android:fontFamily="monospace"
                     android:id="@+id/wildBinLabel"
                     android:text="00000000.00000000.00000000.11111111"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- Network -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="Network"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/netIdLabel"
                     android:text="192.168.0.0/24"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Class C"
                     android:id="@+id/txtclass"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:textColor="@color/colorPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -261,69 +271,60 @@
                     android:id="@+id/netBinLabel"
                     android:fontFamily="monospace"
                     android:text="11000000.10101000.00000000.00000000"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- Broadcast -->
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="0dp"
-            android:background="@drawable/style_btn_white"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:text="Broadcast"
-                android:textSize="10pt" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/bcIdLabel"
-                android:text="192.168.0.255"
-                android:textSize="10pt" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/bcBinLabel"
-                android:fontFamily="monospace"
-                android:text="11000000.10101000.00000000.11111111"
-                android:textSize="6pt" />
-        </LinearLayout>
-
-            <!-- HostMin -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:paddingTop="10dp"
+                    android:text="Broadcast"
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:id="@+id/bcIdLabel"
+                    android:text="192.168.0.255"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bcBinLabel"
+                    android:fontFamily="monospace"
+                    android:text="11000000.10101000.00000000.11111111"
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
+
+            <!-- HostMin -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
                     android:text="HostMin"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/hostMinIdLabel"
                     android:text="192.168.0.1"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -331,34 +332,30 @@
                     android:fontFamily="monospace"
                     android:id="@+id/hostMinBinLabel"
                     android:text="11000000.10101000.00000000.00000001"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- HostMax -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="HostMax"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/hostMaxIdLabel"
                     android:text="192.168.0.254"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -366,41 +363,40 @@
                     android:fontFamily="monospace"
                     android:id="@+id/hostMaxBinLabel"
                     android:text="11000000.10101000.00000000.11111110"
-                    android:textSize="6pt" />
-            </LinearLayout>
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
 
             <!-- Hosts -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/style_btn_white"
-                android:orientation="vertical"
-                android:padding="20dp">
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:text="Hosts"
-                    android:textSize="10pt" />
+                    android:textSize="10pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="254"
                     android:id="@+id/host"
-                    android:textSize="10pt" />
+                    android:textSize="7pt"
+                    android:fontFamily="@font/bebasneue"
+                    android:textColor="@color/colorAccent"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/netTypeLabel"
                     android:text="(Private Network)"
-                    android:textSize="7pt" />
+                    android:textSize="5pt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:fontFamily="@font/bebasneue"
+                    android:textAlignment="center"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

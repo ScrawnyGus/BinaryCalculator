@@ -11,7 +11,7 @@ public class Main2Activity extends AppCompatActivity {
     String stOktal1, stOktal2, stOktal3, stOktal4, stSubnet, sthasil, gg;
     Integer sstOktal1, sstSubnet, kurang, kurang2, hasil;
     Bundle bundle;
-    SeekBar sbSubnet;
+    //SeekBar sbSubnet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,27 +40,27 @@ public class Main2Activity extends AppCompatActivity {
         hostMaxBinLabel = findViewById(R.id.hostMaxBinLabel);
         netTypeLabel = findViewById(R.id.netTypeLabel);
 
-        sbSubnet = findViewById(R.id.sbSubnet);
-        sbSubnet.setMax(32);
-        sbSubnet.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            int seekBarProgress;
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                seekBarProgress = progress;
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+//        //sbSubnet = findViewById(R.id.sbSubnet);
+////        sbSubnet.setMax(32);
+////        sbSubnet.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+////
+////            int seekBarProgress;
+////
+////            @Override
+////            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+////                seekBarProgress = progress;
+////            }
+////
+////            @Override
+////            public void onStartTrackingTouch(SeekBar seekBar) {
+////
+////            }
+////
+////            @Override
+////            public void onStopTrackingTouch(SeekBar seekBar) {
+////
+////            }
+////        });
 
         bundle = getIntent().getExtras();
         stOktal1 = bundle.getString("Okt1");

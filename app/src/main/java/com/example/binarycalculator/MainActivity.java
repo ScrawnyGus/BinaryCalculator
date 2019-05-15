@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Oktal2.setFilters(new InputFilter[] {new CustomRangeInputFilter(0, 255)});
         Oktal3.setFilters(new InputFilter[] {new CustomRangeInputFilter(0, 255)});
         Oktal4.setFilters(new InputFilter[] {new CustomRangeInputFilter(0, 255)});
-        Subnet.setFilters(new InputFilter[] {new CustomRangeInputFilter(0, 32)});
+        Subnet.setFilters(new InputFilter[] {new CustomRangeInputFilter(0, 31)});
     }
 
     public void toastMsg(String msg) {

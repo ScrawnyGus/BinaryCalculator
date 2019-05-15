@@ -79,20 +79,20 @@ public class Main2Activity extends AppCompatActivity {
 //        Class
         sstOktal1 = Integer.parseInt(stOktal1);
         kelas = findViewById(R.id.txtclass);
-        if (sstOktal1<= 126) {
-            kelas.setText("Class A");
+        if (sstOktal1<= 127) {
+            kelas.setText("(Class A)");
         }
-        else if (sstOktal1>=127 && sstOktal1<=191) {
-            kelas.setText("Class B");
+        else if (sstOktal1>=128 && sstOktal1<=191) {
+            kelas.setText("(Class B)");
         }
         else if (sstOktal1>=192 && sstOktal1<=223) {
-            kelas.setText("Class C");
+            kelas.setText("(Class C)");
         }
         else if (sstOktal1>=224 && sstOktal1<=239) {
-            kelas.setText("Class D");
+            kelas.setText("(Class D)");
         }
-        else if (sstOktal1>=240 && sstOktal1<=225) {
-            kelas.setText("Class E");
+        else if (sstOktal1>=240 && sstOktal1<=254) {
+            kelas.setText("(Class E)");
         }
 
 //        Hosts
@@ -230,10 +230,26 @@ public class Main2Activity extends AppCompatActivity {
                 binbcidFull += binBcId;
                 netidFull += Integer.parseInt(String.valueOf(binNetId), 2);
                 bcidFull += Integer.parseInt(String.valueOf(binBcId), 2);
-                hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
-                hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
-                binhostmin += binNetId;
-                binhostmax += binBcId;
+                if(i == 3) {
+                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2)+1;
+                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2)-1;
+                    binhostmin += binNetId.substring(0, 7) + "1";
+                    binhostmax += binBcId.substring(0, 7) + "0";
+//                    hostmin += "1";
+//                    hostmax += "254";
+//                    binhostmin += "00000001";
+//                    binhostmax += "11111110";
+                }
+                else {
+                    hostmin += Integer.parseInt(String.valueOf(binNetId), 2);
+                    hostmax += Integer.parseInt(String.valueOf(binBcId), 2);
+                    binhostmin += binNetId;
+                    binhostmax += binBcId;
+//                    hostmin += "0";
+//                    hostmax += "255";
+//                    binhostmin += "00000000";
+//                    binhostmax += "11111111";
+                }
             }
 
 
@@ -307,7 +323,7 @@ public class Main2Activity extends AppCompatActivity {
             hostMaxBinLabel.setText(binhostmax.substring(0,prefix+3) + " " + binhostmax.substring(prefix+3,35));
         }
 
-        netMaskLabel.setText(netmaskFull);
+        netMaskLabel.setText(netmaskFull + " = " +stSubnet);
         wildCardLabel.setText(wildcard);
         netIdLabel.setText(netidFull);
         bcIdLabel.setText(bcidFull);
